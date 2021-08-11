@@ -18,7 +18,7 @@
 
     # Standard zone files (RFC 1035-style)
     auto {
-        directory /etc/coredns/zones db\.(.*) {1}
+        directory /etc/coredns/config/zones db\.(.*) {1}
         reload 60s
     }
 	
