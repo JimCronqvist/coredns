@@ -1,26 +1,26 @@
 .:53 {
-	log
-	errors
-	loop
-	reload 10s
-	health
-	root /etc/coredns/zones
-	
-	# Rewrites - particularly useful for wildcards
-	rewrite continue name suffix .test.se. .test.com answer auto
-	rewrite name regex (.*)\.test\.com workstation.local answer auto
+    log
+    errors
+    loop
+    reload 10s
+    health
+    root /etc/coredns/zones
 
-	# Standard hosts file for easy of use
-	hosts /etc/coredns/hosts {
-		reload 10s
-		fallthrough
-	}
-	
-	# Standard zone files (RFC 1035-style)
-	auto {
+    # Rewrites - particularly useful for wildcards
+    rewrite continue name suffix .test.se. .test.com answer auto
+    rewrite name regex (.*)\.test\.com workstation.local answer auto
+
+    # Standard hosts file for easy of use
+    hosts /etc/coredns/hosts {
+        reload 10s
+        fallthrough
+    }
+
+    # Standard zone files (RFC 1035-style)
+    auto {
         directory /etc/coredns/zones db\.(.*) {1}
         reload 60s
     }
 	
-	forward . 8.8.8.8 8.8.4.4
+    forward . 8.8.8.8 8.8.4.4
 }
