@@ -32,6 +32,7 @@ echo 'DNSStubListener=no' | sudo tee -a /etc/systemd/resolved.conf
 sudo rm -f /etc/resolv.conf
 sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 sudo systemctl restart systemd-resolved
+sudo reboot
 ```
 
 ## Further reading
