@@ -9,6 +9,9 @@
     # Rewrites - particularly useful for wildcards
     rewrite continue name suffix .test.se. .test.com answer auto
     rewrite name regex (.*)\.test\.com workstation.local answer auto
+    
+    # Cnames
+    rewrite name exact test.com host.docker.internal
 
     # Standard hosts file for easy of use
     hosts /etc/coredns/hosts {
